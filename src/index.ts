@@ -9,7 +9,7 @@ async function main() {
     app.listen(3000);
     console.log("Server listen on port", 3000);
   } catch (error) {
-    console.log(error);
+    console.log(error as Error);
   }
 }
 main();
