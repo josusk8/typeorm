@@ -1,5 +1,4 @@
-import { GraphQLID, GraphQLString } from "graphql";
-import { UserType } from "../typeDefs/User";
+import { GraphQLID, GraphQLString ,GraphQLBoolean} from "graphql";
 import { TaskType } from "../typeDefs/Task";
 import { Task } from "../../entities/Task";
 import { User } from "../../entities/User";
@@ -25,5 +24,20 @@ export const CREATE_TASK = {
 
     console.log(result);
     return { ...args, id: result.identifiers[0].id };
+  },
+};
+export const DELETE_TASK = {
+  type: GraphQLBoolean,
+  args: {
+    id: { type: GraphQLID },
+  },
+  async resolve(_: any, { id }: any) {
+    const result = await Task.delete(id);
+    console.log(result);
+
+    if (result.affected === 1) {
+      return true;
+    }
+    return false;
   },
 };
