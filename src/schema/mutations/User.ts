@@ -24,6 +24,7 @@ export const CREATE_USER = {
     return { ...args, id: result.identifiers[0].id, password: encryptPassword };
   },
 };
+
 export const DELETE_USER = {
   type: GraphQLBoolean,
   args: {
@@ -37,5 +38,43 @@ export const DELETE_USER = {
       return true;
     }
     return false;
+  },
+};
+
+export const UPDATE_USER = {
+  type: GraphQLBoolean,
+  args: {
+    id: { type: GraphQLID },
+    username: { type: GraphQLString },
+    oldPassword: { type: GraphQLString },
+    newPassword: { type: GraphQLString },
+  },
+  async resolve(_: any, { id, username, oldPassword, newPassword }: any) {
+    console.log(id, username, oldPassword, newPassword);
+
+    const userFound = await User.findOne({ where: { id: id } });
+
+    if (userFound == null) {
+      return false;
+    } else {
+      const isMatch = await bcrypt.compare(oldPassword, userFound.password);
+      if (!isMatch) {
+        return false;
+      }
+
+      const passwordHash = await bcrypt.hash(newPassword, 10);
+
+      const response = await User.update(
+        { id },
+        { username: username, password: passwordHash }
+      );
+      console.log(response);
+
+      if (response.affected === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
 };

@@ -26,6 +26,8 @@ export const CREATE_TASK = {
     return { ...args, id: result.identifiers[0].id };
   },
 };
+
+
 export const DELETE_TASK = {
   type: GraphQLBoolean,
   args: {
