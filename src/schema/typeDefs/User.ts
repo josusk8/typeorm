@@ -1,4 +1,5 @@
-import {GraphQLInt, GraphQLObjectType, GraphQLString, GraphQLID} from 'graphql'
+import {GraphQLList, GraphQLObjectType, GraphQLString, GraphQLID} from 'graphql'
+import { TaskType } from './Task'
 
 export const UserType = new GraphQLObjectType({
     name: 'User',
@@ -6,5 +7,6 @@ export const UserType = new GraphQLObjectType({
         id: {type: GraphQLID},
         username: {type: GraphQLString},
         password: {type: GraphQLString}, 
+       
     }
 })

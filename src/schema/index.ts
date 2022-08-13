@@ -1,20 +1,23 @@
 import { GraphQLSchema, GraphQLObjectType } from "graphql";
-import { GREETING } from "./queries/Greeting";
-import { GET_ALL_USERS } from "./queries/User";
+import { GET_ALL_USERS, GET_USER } from "./queries/User";
 import { CREATE_USER } from "./mutations/User";
+import { GET_ALL_TASKS } from "./queries/Task";
+import { CREATE_TASK } from "./mutations/Task";
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQuery",
   fields: {
-    greeting: GREETING,
     getAllUsers: GET_ALL_USERS,
+    getUser:GET_USER,
+    getAllTasks: GET_ALL_TASKS,
   },
 });
 
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
-    createrUser: CREATE_USER,
+    createUser: CREATE_USER,
+    createTask: CREATE_TASK,
   },
 });
 

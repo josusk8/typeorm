@@ -21,7 +21,7 @@ export class Task extends BaseEntity {
   tittle: string;
 
   @Column()
-  priority: Number;
+  priority: string;
 
   @Column()
   description: string;
