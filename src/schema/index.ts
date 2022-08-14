@@ -2,7 +2,7 @@ import { GraphQLSchema, GraphQLObjectType } from "graphql";
 import { GET_ALL_USERS, GET_USER } from "./queries/User";
 import { CREATE_USER, DELETE_USER, UPDATE_USER } from "./mutations/User";
 import { GET_ALL_TASKS, GET_TASK } from "./queries/Task";
-import { CREATE_TASK, DELETE_TASK } from "./mutations/Task";
+import { CREATE_TASK, DELETE_TASK, UPDATE_TASK } from "./mutations/Task";
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQuery",
@@ -22,6 +22,7 @@ const Mutation = new GraphQLObjectType({
     updateUser: UPDATE_USER,
     createTask: CREATE_TASK,
     deleteTask: DELETE_TASK,
+    updateTask: UPDATE_TASK,
 
   },
 });
