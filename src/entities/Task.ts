@@ -4,6 +4,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   ManyToOne,
+  DeleteDateColumn,
 } from "typeorm";
 import { User } from "./User";
 
@@ -25,4 +26,7 @@ export class Task extends BaseEntity {
 
   @Column()
   description: string;
+  
+  @DeleteDateColumn()
+  public deletedAt: Date;
 }
