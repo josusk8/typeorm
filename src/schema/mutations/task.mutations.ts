@@ -1,5 +1,5 @@
 import { GraphQLID, GraphQLString, GraphQLBoolean } from "graphql";
-import { TaskType } from "../typeDefs/Task";
+import { TaskType } from "../typeDefs/task.typedef";
 import { Task } from "../../entities/Task";
 import { User } from "../../entities/User";
 

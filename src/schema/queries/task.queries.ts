@@ -1,6 +1,6 @@
 import { GraphQLList,GraphQLID } from "graphql";
 import { Task } from "../../entities/Task";
-import { TaskType } from "../typeDefs/Task";
+import { TaskType } from "../typeDefs/task.typedef";
 
 export const GET_ALL_TASKS = {
   type: new GraphQLList(TaskType),

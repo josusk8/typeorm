@@ -1,8 +1,8 @@
 import { GraphQLBoolean, GraphQLID, GraphQLList, GraphQLString } from "graphql";
 import { User } from "../../entities/User";
-import { UserType } from "../typeDefs/User";
+import { UserType } from "../typeDefs/user.typedef";
 import bcrypt from "bcryptjs";
-import { TaskType } from "../typeDefs/Task";
+import { TaskType } from "../typeDefs/task.typedef";
 
 export const CREATE_USER = {
   type: UserType,

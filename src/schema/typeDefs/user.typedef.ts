@@ -1,5 +1,5 @@
 import {GraphQLList, GraphQLObjectType, GraphQLString, GraphQLID} from 'graphql'
-import { TaskType } from './Task'
+import { TaskType } from './task.typedef'
 
 export const UserType = new GraphQLObjectType({
     name: 'User',
